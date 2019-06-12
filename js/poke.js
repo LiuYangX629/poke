@@ -4,20 +4,20 @@ $(function () {
    let box = $('.box');
    let flag ={};
 
-   // for(let i= 0 ;i<52 ; i++){
-   //     let index = Math.floor(Math.random() * colorArr.length);
-   //     let color =colorArr[index];
-   //     let number =Math.round(Math.random() *12+1);
-   //
-   //     while (flag[color+'_'+number]){
-   //         index = Math.floor(Math.random()*colorArr.length);
-   //         color =colorArr[index];
-   //         number = Math.round(Math.random()*12+1);
-   //
-   //     }
-   //     poke.push({color,number});
-   //     flag[color+'_'+number]=true;
-   // }
+   for(let i= 0 ;i<52 ; i++){
+       let index = Math.floor(Math.random() * colorArr.length);
+       let color =colorArr[index];
+       let number =Math.round(Math.random() *12+1);
+
+       while (flag[color+'_'+number]){
+           index = Math.floor(Math.random()*colorArr.length);
+           color =colorArr[index];
+           number = Math.round(Math.random()*12+1);
+
+       }
+       poke.push({color,number});
+       flag[color+'_'+number]=true;
+   }
 
     while (poke.length<52){
         let index =Math.floor(Math.random()*colorArr.length);
@@ -51,14 +51,14 @@ $(function () {
         }
     }
 
-    for(;index<52;index++){
+    for(let index=0;index<52;index++){
         let obj =poke[index];
         $('<div>')
             .addClass('poke')
             .addClass('left')
-            .addClass('right')
+            // .addClass('right')
             .css({backgroundImage:`url(./image/${obj.number}${obj.color}.jpg)`})
-            .attr('id','-2_-2')
+            .attr('id','-1_-2')
             .data('number',obj.number)
             .appendTo('.box')
             .delay(index*30)
@@ -115,10 +115,15 @@ $(function () {
     });
 
     let n =0 ;
-    $('.right').on('click',function () {
+    $('.rightBtn').on('click',function () {
         $('.left').last().css('zIndex',n++).animate({left:710},function () {
             $(this).removeClass('left').addClass('right');
         });
     });
 
+    $('.leftBtn').on('click',function () {
+        $('.right').last().css('zIndex',n++).animate({left:'0'},function () {
+            $(this).removeClass('right').addClass('left');
+        });
+    });
 });
