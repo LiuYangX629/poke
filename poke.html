@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>扑克</title>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/poke.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: #00C1DE;
+        }
+        .poke{
+            width: 90px;
+            height: 120px;
+            background: #fbb548;
+            position: absolute;
+            left: 350px;
+            top: 0;
+            background-size:cover ;
+            background-position:center ;
+            opacity: 0;
+            border: 3px solid gold;
+        }
+        .active{
+            border-color: orange;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border: none;
+            outline: none;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            position: absolute;
+            left:350px ;
+            bottom: 40px;
+        }
+        /*.leftBtn{*/
+        /*    bottom: 0;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="box" data-age="18">
+    <button class="right">
+        &gt;
+    </button>
+<!--    <button class="leftBtn">-->
+<!--        &lt;-->
+<!--    </button>-->
+
+</div>
+</body>
+</html>
